@@ -1,0 +1,269 @@
+/* -----------------------------------
+------------- B A R R A --------------
+---------- D I V I S O R A -----------
+-------------------------------------- */
+
+#principal #barraDivisora {
+    background-color: #222;
+    height: 50px;
+}
+
+/* -----------------------------------
+--------- C O N T E N I D O ----------
+-------------------------------------- */
+
+#principal .contenidoPerfil {
+    width: 70%;
+    margin: auto;
+    text-align: left;
+    display: flex;
+    min-height: calc(100vh - 210px);
+}
+
+/* -----------------------------------
+--------------- M E N U --------------
+-------------------------------------- */
+
+#principal #menuSecundario {
+    background-color: #222;
+    min-width: 208px;
+    height: auto;
+}
+
+#principal #menuSecundario a {
+    padding: 0 15px;
+    display: block;
+    text-decoration: none;
+    color: white;
+    line-height: 3;
+}
+
+#principal #menuSecundario li {
+    position: relative;
+    border-top: 1px solid rgb(63, 63, 63);
+    border-bottom: 1px solid rgb(24, 24, 24);
+}
+
+#principal #menuSecundario li.selector:after {
+    position: absolute;
+    top: 50%;
+    left: 99%;
+    transform: translateY(-50%);
+    content: "";
+    width: 12px;
+    height: 20px;
+    clip-path: polygon(100% 50%, 0 100%, 0 0);
+    background-color: #222;
+}
+
+#principal #menuSecundario label {
+    cursor: pointer;
+}
+
+/* -----------------------------------
+------------- B L O Q U E ------------
+------------ D E R E C H A -----------
+-------------------------------------- */
+
+#principal .bloqueFondo {
+    background-color: rgb(228, 228, 228);
+    padding: 15px;
+    /* Estirar contenido hasta el final */
+    flex: auto;
+}
+
+#principal .bloquePrincipal {
+    font-weight: 600;
+    padding: 10px;
+    background-color: whitesmoke;
+    font-size: 15px;
+}
+
+#principal label span {
+    color: dimgray;
+}
+
+#principal .bloqueDatos {
+    margin-top: 15px;
+    display: grid;
+    grid-row-gap: 10px;
+}
+
+#principal .msjAlerta {
+    margin-bottom: 7px;
+    font-size: 12px;
+}
+#principal .roja{
+    color: #FF4E4E;
+}
+
+#principal .verde{
+    color: #07b310;
+}
+
+#principal .btn {
+    margin-top: 10px;
+    width: 90px;
+    height: 30px;
+    background-color: whitesmoke;
+    border: 1px solid rgb(150, 150, 150);
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 50px;
+    outline: none;
+}
+
+#principal .btn:hover {
+    background-color: rgb(228, 228, 228);
+}
+
+#principal .btn:active {
+    outline: none;
+    box-shadow: inset 0px 1px 3px 2px rgba(172, 172, 172, 0.75);
+}
+
+/* -----------------------------------
+------------- D A T O S --------------
+-------- P E R S O N A L E S ---------
+-------------------------------------- */
+
+#principal .textoMod {
+    height: 35px;
+    outline: none;
+    border: 1px solid rgb(209, 209, 209);
+    font-size: 13px;
+    padding-left: 5px;
+    background-color: none;
+}
+
+#principal .bloqueDatos #fechaNac {
+    display: grid;
+    justify-content: space-between;
+    grid-column-gap: 5px;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+#principal #contenedorSelect {
+    padding-left: 0;
+}
+
+#principal .bloqueDatos select {
+    width: 100%;
+    border: none;
+}
+
+#principal #btnImagen {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#principal #lblImg {
+    font-size: 13px;
+    background-color: whitesmoke;
+    border: 1px solid rgb(150, 150, 150);
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 50px;
+    outline: none;
+}
+
+#principal #lblImg:hover {
+    background-color: rgb(228, 228, 228);
+}
+
+#principal #lblImg:active {
+    box-shadow: inset 0px 1px 3px 2px rgba(172, 172, 172, 0.75);
+}
+
+#principal #imgCuadro {
+    width: 100px;
+    height: auto;
+    border: 1px solid rgb(150, 150, 150);
+}
+
+#principal #noImgCuadro {
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgb(150, 150, 150);
+    background-color: gray;
+}
+
+/* -----------------------------------
+------------- T A B L A --------------
+-------------------------------------- */
+
+#principal .bloqueDatos table {
+    border-collapse: collapse;
+    border: 1px solid #b9b9b9;
+    margin: 10px;
+}
+
+#principal .bloqueDatos th {
+    padding: 5px 10px;
+}
+
+#principal .bloqueDatos td {
+    padding: 5px 10px;
+}
+
+/* Filas impares */
+#principal .bloqueDatos tbody > tr:nth-child(odd) {
+    background-color: #222222;
+    color: whitesmoke;
+    border-left: 1px solid #222222;
+    border-right: 1px solid #222222;
+}
+
+#principal .bloqueDatos tbody > tr:nth-child(even) {
+    background-color: whitesmoke;
+    color: #222222;
+}
+
+/* -----------------------------------
+---------- S E P A R A D O R ---------
+-------------------------------------- */
+
+.separadorPerfil {
+    margin: 10px 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+/* -----------------------------------
+------------- M E D I A --------------
+--------------------------------------
+----------- Q U E R I E S ------------
+-------------------------------------- */
+
+@media (max-width: 1050px) {
+
+    #principal .contenidoPerfil {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    #principal .contenidoPerfil {
+        display: block;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    body {
+        min-width: 260px;
+    }
+
+    #principal .bloqueDatos #redes {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+}

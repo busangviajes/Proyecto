@@ -1,0 +1,174 @@
+.peq {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	font-weight: 200;
+}
+
+.gran {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.7em;
+}
+
+.b {
+	font-weight: 600;
+}
+
+#principal .contenido #tablaViajes #lista {
+    margin: auto;
+    width: fit-content;
+	display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+#principal .contenido #tablaViajes #lista h3 {
+    color: white;
+}
+
+#principal .contenido #tablaViajes #lista #resultados2 {
+	display: none;
+	border-left: 1px solid #425a92;
+}
+
+#tarjetaUno, #tarjetaDos {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+}
+
+.tablaTarjetas > div {
+	margin: 10px;
+}
+
+.tituloTarjetas {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+	margin-bottom: 20px;
+	color: white;
+}
+
+.fecha-hora {
+	font-size: 1.3em;
+}
+
+.tarjeta {
+	height: auto;
+	width: 450px;
+	background-color: #f5f5f5;
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	display: grid;
+	grid-template-columns: 225px 225px;
+	font-family: 'Open Sans', sans-serif;
+	box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.38);
+	padding: 10px;
+	color: #333;
+	font-family: 20px;
+}
+
+.recomendado {
+	box-shadow: 2px 2px 0px 4px rgba(172, 213, 21, 1);
+}
+
+#principal .tablaTarjetas p {
+    margin: 0;
+}
+
+.info1 {
+	display: grid;
+    text-align: left;
+	justify-items: start;
+	
+}
+
+.info1 .llega {
+	align-self: end;
+}
+
+.info2 {
+	justify-self: end;
+	display: grid;
+	width: 200px;
+	grid-template-rows: 25px repeat(3, 50px);
+}
+
+.logo-empresa {
+	filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
+	justify-self: end;
+	max-height: 50px;
+	max-width: 200px;
+}
+
+.logo-wifi {
+	width: 25px;
+}
+
+.asientos {
+	display: flex;
+	justify-content: space-evenly;
+    align-items: center;
+}
+
+.texto-asientos {
+	font-size: .9em;
+}
+
+#principal .asientos span {
+    color: white;
+}
+
+.numA {
+	background-color: #348bff;
+	width: 25px;
+	height: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	font-size: .9em
+}
+
+.cat {
+	font-size: 1em;
+	justify-self: end;
+}
+
+.cat > span {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	column-gap: 10px;
+	align-items: center;
+}
+
+.btnCompra {
+	background-color: #ffa834;
+	width: 100%;
+	border: none;
+	color: white;
+	height: 50px;
+	border-radius: 10px;
+	outline: none;
+	font-weight: 700;
+}
+
+.btnCompra:hover {
+	cursor: pointer;
+	background-color: #ee9c31;
+}
+
+.btnCompra:active {
+	background-color: #ffae43;
+}
+
+@media (max-width: 1050px) {
+
+	#tarjetaUno, #tarjetaDos {
+		grid-template-columns: auto;
+	}
+
+}
+
+@media (max-width: 580px) {
+	.tarjeta {
+		width: 225px;
+		grid-template-columns: auto;
+	}
+}

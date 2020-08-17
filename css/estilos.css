@@ -1,0 +1,1270 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, rgba(255, 0, 0, .7), rgba(255, 210, 0, .7)), url(../img/buses/bus.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+*::-webkit-scrollbar {
+    background-color: #252525;
+    width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: whitesmoke;
+    border-left: 1.5px solid #252525;
+    border-right: 1.5px solid #252525;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+select {
+    padding-left: 5px;
+}
+
+.descargar {
+    height: 30px;
+}
+
+#btnFlechaDer {
+    position: absolute;
+    right: 0;
+    margin: 0 10px;
+}
+
+#btnFlechaIzq {
+    position: absolute;
+    left: 0;
+    margin: 0 10px;
+}
+
+.flecha {
+    visibility: hidden;
+	width: 50px;
+	height: 50px;
+	background-color: rgba(255, 255, 255, .1);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flecha i {
+	border: solid whitesmoke;
+	border-width: 0 7px 7px 0;
+	padding: 7px;
+}
+
+#derecha {
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+#izquierda {
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+}
+
+/*------------------------------------
+------------ O V E R L A Y -----------
+--------------------------------------*/
+
+#principal #overlay {
+    position: fixed;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    transition: background-color .2s ease-out, visibility .2s;
+}
+
+#principal #chkOverlay:checked ~ #overlay {
+    background-color: rgba(0, 0, 0, .4);
+    visibility: initial;
+}
+
+/*------------------------------------
+------------ P A G I N A -------------
+--------- P R I N C I P A L ----------
+--------------------------------------*/
+
+#principal {
+    background: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#principal header {
+    position: fixed;
+    z-index: 30;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+
+/* Para que la imagen de perfil no quede oculta
+bajo la barra de scroll, se coloca:
+width: 100vw*/
+#principal #barra {
+    background-color: white;
+    padding: 5px 0 0;
+    box-shadow: 0px 0px 50px 17px rgba(0, 0, 0, .30);
+}
+
+#principal #cabecera {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+}
+
+#principal ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#principal #menu_imgPerfil {
+    width: 550px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* -----------------------------------
+------------- M E N U ----------------
+--------------------------------------
+-------- P R I N C I P A L -----------
+-------------------------------------- */
+
+#principal #menuPrincipal {
+    font-weight: 600;
+}
+
+#principal #menuPrincipal ul {
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+#principal #menuPrincipal li {
+    display: inline-block;
+    margin-right: 3px;
+}
+
+#principal #menuPrincipal li:after, #principal #menuPerfil li:after {
+    content: "";
+    border-bottom: 2px solid #222222;
+    transform: scaleX(0);
+    display: block;
+    transition: transform .2s ease-out;
+}
+
+#principal #menuPrincipal li:hover:after, #principal #menuPerfil li:hover:after {
+    transform: scaleX(1);
+}
+
+#principal #menuPrincipal a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 0 20px;
+    line-height: 3;
+}
+
+#principal .imgPerfil {
+    width: 45px;
+    height: 45px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px white,
+                0 0 0 4px #999;
+    margin-right: 7px;
+    cursor: pointer;
+}
+
+#principal .imgPerfil::selection {
+    background-color: transparent;
+    color: #000;
+}
+
+#principal #chkMenuPrincipal, #principal #chkMenuPerfil, #principal #chkOverlay {
+    display: none;
+}
+
+/* -----------------------------------
+------------- M E N U ----------------
+--------------------------------------
+----------- P E R F I L --------------
+-------------------------------------- */
+
+#principal #menuPerfil {
+    position: absolute;
+    right: 0;
+    top: -234px;
+    z-index: -20;
+    transition: top 100ms ease-out;
+}
+
+#principal #menuPerfil ul {
+    background-color: white;
+    font-size: 15px;
+    width: 300px;
+}
+
+#principal #menuPerfil li:last-child {
+    border: none;
+}
+
+#principal #menuPerfil li:after {
+    transform-origin: 0% 0%;
+}
+
+#principal #menuPerfil a {
+    padding: 0 1em;
+    color: black;
+    text-decoration: none;
+    display: block;
+    line-height: 3;
+}
+
+#principal #datosPerfil {
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    border-bottom: 1px solid rgb(145, 145, 145);
+}
+
+#principal #menuPerfil label {
+    cursor: pointer;
+}
+
+#principal #chkMenuPerfil:checked ~ #menuPerfil {
+    top: 100%;
+}
+
+/* -----------------------------------
+--------------------------------------
+-------------- M A I N ---------------
+--------------------------------------
+-------------------------------------- */
+
+main {
+    margin: auto;
+    padding: 60px 0 50px;
+    min-height: calc(100vh - 160px);
+}
+
+/* -----------------------------------
+----- I M A G E N / B A N N E R ------
+--------------------------------------
+--------- P R I N C I P A L ----------
+-------------------------------------- */
+
+#principal .presentacion {
+    width: 100%;
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+    transition: all 200ms;
+}
+
+#principal .general {
+    display: flex;
+    align-items: center;
+}
+
+#principal #pagInicio {
+    background-image: linear-gradient(135deg, rgba(255, 0, 0, .7), rgba(255, 210, 0, .7)), url(../img/buses/bus.jpg);
+}
+
+#principal #pagAcercade {
+    background-image: linear-gradient(135deg, rgba(255, 0, 0, .7), rgba(255, 210, 0, .7)), url(../img/buses/bus2.jpg);
+}
+
+#principal #pagFaq {
+    background-image: linear-gradient(135deg, rgba(255, 0, 0, .7), rgba(255, 210, 0, .7)), url(../img/buses/bus3.jpg);
+}
+
+#principal #pagContacto {
+    background-image: linear-gradient(135deg, rgba(255, 0, 0, .7), rgba(255, 210, 0, .7)), url(../img/buses/bus4.jpg);
+}
+
+#principal #pagViajes {
+    background-image: linear-gradient(135deg, rgba(255, 0, 0, .7), rgba(255, 210, 0, .7)), url(../img/buses/bus5.jpg);
+}
+
+#principal .banner {
+    margin: auto;
+    width: 50%;
+    color: white;
+    text-align: center;
+}
+
+#principal .banner h6 {
+    font-family: 'Merienda One', cursive;
+    font-weight: 400;
+    animation: .2s ease-in-out aparecer;
+    font-size: 25px;
+}
+
+#principal .banner h1 {
+    font-size: 40px;
+}
+
+#principal #pagResultados {
+    padding-top: 15px;
+}
+
+#principal .banner #busqueda {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, auto) 50px;
+    align-items: end;
+}
+
+#principal .banner #busqueda span {
+    display: flex;
+}
+
+#principal .banner #busqueda .txt {
+    align-self: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    background-color: whitesmoke;
+    border: none;
+    font-size: 15px;
+    outline: none;
+    padding: 0 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#principal .banner #busqueda #t1 {
+    width: calc(100% - 18px);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#principal .banner #busqueda #t2 {
+    width: calc(100% - 8px);
+    margin-left: 8px;
+    border-right: 1px solid #cecece;
+}
+
+#principal .banner #busqueda #t3 {
+    padding-right: 50px
+}
+
+#principal .banner #busqueda #txt1 {
+    position: relative;
+}
+
+#principal .banner #busqueda #txt1:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-left: 18px solid whitesmoke;
+    border-bottom: 25px solid transparent;
+}
+
+#principal .banner #busqueda #txt2 {
+    position: relative;
+}
+
+#principal .banner #busqueda #txt2:before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-top: 25px solid whitesmoke;
+    border-left: 18px solid transparent;
+    border-bottom: 25px solid whitesmoke;
+}
+
+#principal .banner #busqueda #txt3 {
+    position: relative;
+}
+
+#principal .banner #busqueda #cruz {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    font-size: 35px;
+    color: #333;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    line-height: 50px;
+}
+
+#principal .banner #busqueda #cruz:hover {
+    color: rgb(104, 104, 104);
+    cursor: pointer;
+}
+
+#principal .banner #busqueda #btnBuscar {
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#principal .banner #busqueda #btnBuscar:hover {
+    background-color: rgb(63, 63, 63);
+}
+
+#principal .banner #busqueda #btnBuscar:active {
+    background-color: rgb(73, 73, 73);
+}
+
+#principal .banner p {
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    animation: .5s ease-in-out aparecer;
+}
+
+#principal .resultados {
+    background: #304269;
+}
+
+#principal .resultados .banner #busqueda #btnBuscar {
+    background-color: #ffa834;
+}
+
+#principal .resultados .banner #busqueda #btnBuscar:hover {
+    background-color: #ee9c31;
+}
+
+#principal .resultados .banner #busqueda #btnBuscar:active {
+    background-color: #ffae43;
+}
+
+#principal .resultados .contenido {
+    width: 100%;
+}
+
+#principal .resultados #bloqueBusquedaAvanzada {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    margin: 20px 0;
+    background-color: whitesmoke;
+}
+
+#principal .resultados #bloqueBusquedaAvanzada > div:not(#opciones-orden) {
+    margin: auto;
+    width: fit-content;
+}
+
+#principal .contenido #bloqueBusquedaAvanzada #avz {
+    font-weight: 700;
+}
+
+#principal .contenido .busquedaAvanzada, #principal .resultados #bloqueBusquedaAvanzada > div .opciones {
+    margin: auto;
+    width: fit-content;
+    height: auto;
+    padding: 10px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+#principal .resultados #bloqueBusquedaAvanzada > div #opciones-compania {
+    padding: 20px;
+}
+
+#principal .contenido .busquedaAvanzada .tipoBusqueda {
+    font-weight: initial;
+}
+
+#principal .contenido .busquedaAvanzada > p:not(.tipoBusqueda) {
+    margin: 0 5px;
+}
+
+#principal .contenido .busquedaAvanzada .opciones {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+
+#principal .contenido .busquedaAvanzada .opciones-compania {
+    margin: 0;
+    display: initial;
+}
+
+#principal .contenido .busquedaAvanzada .opciones > div {
+    margin: 10px 10px;
+}
+
+#principal .contenido .busquedaAvanzada .opciones > div > label {
+    font-weight: 700;
+    color: royalblue;
+}
+
+#principal .contenido #bloqueBusquedaAvanzada input {
+    margin: 0 10px;
+}
+
+#principal .contenido #bloqueBusquedaAvanzada #compania {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+@keyframes aparecer {
+    0% {
+        transform: translateX(20%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* -----------------------------------
+------------T O O L T I P-------------
+-------------------------------------- */
+
+.tooltip {
+    position: absolute;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 8px;
+    bottom: 115%;
+    right: -30px;
+    visibility: hidden;
+    opacity: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    width: 220px;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+#principal .banner #busqueda #t3:focus ~ .tooltip {
+    animation: animacionTooltip 7s forwards;
+}
+
+@keyframes animacionTooltip {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+    }
+    10% {
+        visibility: visible;
+        opacity: 1;
+    }
+    90% {
+        visibility: visible;
+        opacity: 1;
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+/* -----------------------------------
+--------------------------------------
+----------C O N T E N I D O-----------
+--------------------------------------
+-------------------------------------- */
+
+#principal .contenido {
+    width: 60%;
+    margin: 30px auto 0;
+    display: block;
+    text-align: center;
+}
+
+#principal section {
+    text-align: left;
+    padding: 15px;
+}
+
+#principal .contenido article {
+    margin: 10px;
+}
+
+#principal .icono {
+    color: #222;
+    font-size: 150px;
+    margin-bottom: 15px;
+}
+
+#principal .contenido h1 {
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.subrayado {
+    text-decoration: underline;
+}
+
+/* -----------------------------------
+--------------------------------------
+--------- P R E G U N T A S ----------
+-------- F R E C U E N T E S ---------
+--------------------------------------
+-------------------------------------- */
+
+#principal .lineaFAQ {
+    margin: 50px auto;
+}
+
+/* -----------------------------------
+--------------------------------------
+---------- C O N T A C T O -----------
+--------------------------------------
+-------------------------------------- */
+
+#principal #seccionContacto {
+    display: flex;
+}
+
+#principal #info {
+    width: 50%;
+    text-align: left;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+#principal #info p {
+    margin-top: 0; 
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+#principal #formContacto {
+    width: 50%;
+}
+
+#principal #formContacto form{
+    background-color: rgb(226, 226, 226);
+    border: 1px solid rgba(139, 139, 139, 0.70);
+    text-align: left;
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-rows: repeat(2, auto);
+    padding: 15px;
+    align-content: stretch;
+}
+
+#principal #formContacto input {
+    outline: none;
+    height: 25px;
+    font-size: 15px;
+    padding: 0 5px;
+}
+
+#principal #formContacto textarea {
+    outline: none;
+    resize: none;
+    border: 1px solid rgb(209, 209, 209);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    padding: 5px;
+}
+
+#principal #formContacto #btn {
+    justify-self: end;
+}
+
+#principal #formContacto .boton {
+    width: 150px;
+}
+
+/* -----------------------------------
+--------------------------------------
+---------- A G E N C I A S -----------
+--------------------------------------
+-------------------------------------- */
+
+#principal #agencias {
+    height: auto;
+    margin: 20px auto;
+}
+
+#principal #agencias > div {
+    height: 0;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    overflow-y: hidden;
+    transition: height .2s ease-in-out;
+}
+
+#principal #agencias > div label {
+    line-height: 50px;
+}
+
+#principal #agencias #divTabla {
+    overflow-y: scroll;
+    height: 200px;
+}
+
+#principal #agencias table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#principal #agencias #email {
+    text-align: center;
+    padding: 10px 0;
+    background-color: initial;
+}
+
+#principal #agencias th {
+    background-color: #555;
+}
+
+#principal #agencias th, td {
+    padding: 10px 15px;
+}
+
+#principal #agencias tr:nth-child(odd) {
+    background-color: rgb(70, 70, 70);
+}
+
+#principal #agencias tr:nth-child(even) {
+    background-color: #555;
+}
+
+#principal #agencias th:last-child { /* Tama�o de la cabecera Tarifa */
+    width: 90px;
+}
+
+#principal #agencias input[type="checkbox"] {
+    display: none;
+}
+
+#principal #agencias .btnAgencia {
+    height: 50px;
+    border-bottom: 1px solid rgba(34, 34, 34, .2);
+    color: rgb(54, 54, 54);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#principal #agencias .btnAgencia:hover {
+    background-color: whitesmoke;
+}
+
+hr {
+    width: 60%;
+    margin: 20px auto;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/* -----------------------------------
+--------------------------------------
+---- F U N C I O N A M I E N T O -----
+--------------------------------------
+-------------------------------------- */
+
+#principal #pasos {
+    width: 100%;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+}
+
+#principal .funcionamiento {
+    font-size: 15px;
+}
+
+#principal .funcionamiento .iconoF {
+    color: #222;
+    font-size: 70px;
+}
+
+#asiento {
+    background-image: url(../img/asiento.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
+    margin: auto;
+}
+
+#principal .funcionamiento h2, #principal .funcionamiento p {
+    margin: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#principal .contenido > p {
+    color: rgb(34, 34, 34);
+    font-size: 17px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* -----------------------------------
+------------ C O M P R A -------------
+-------------------------------------- */
+
+:root {
+    --tamanioAsientos: 60px;
+    --espacioAsientos: 10px;
+}
+
+#compra #contenedorPrincipal {
+    width: calc(700px + 60px);
+    height: calc(100vh - 200px);
+    background-color: whitesmoke;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+#compra #seleccionAsientos {
+    min-width: 400px;
+    background-color: rgb(228, 228, 228);
+    overflow-y: scroll;
+    padding: 15px;
+}
+
+#compra #seleccionAsientos #marcoBus {
+    margin: auto;
+    border: 2px solid #555;
+    border-radius: 8px;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(2, auto);
+    padding: 10px;
+    background-color: rgb(200, 200, 200);
+}
+
+#compra #seleccionAsientos #marcoBus .contenedorAsientos {
+    display: grid;
+    align-content: start;
+    justify-items: center;
+    row-gap: var(--espacioAsientos);
+    grid-template-columns: repeat(2, calc(var(--tamanioAsientos) + var(--espacioAsientos)));
+}
+
+#compra #seleccionAsientos #marcoBus .asiento {
+    width: var(--tamanioAsientos);
+    height: var(--tamanioAsientos);
+    border-radius: 8px;
+    text-align: center;
+    line-height: var(--tamanioAsientos);
+    border: none;
+    position: relative;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 2px;
+}
+
+#compra #seleccionAsientos #marcoBus .disponible {
+    color: rgb(35, 107, 35);
+    border: 1px solid rgb(35, 107, 35);
+    background-color: rgb(110, 233, 110);
+}
+
+#compra #seleccionAsientos #marcoBus .ocupado {
+    color: rgb(126, 44, 44);
+    border: 1px solid rgb(126, 44, 44);
+    background-color: rgb(233, 110, 110);
+}
+
+#compra #seleccionAsientos #marcoBus .seleccionado {
+    color: #222;
+    border: 1px solid #222;
+    background-color: whitesmoke;
+}
+
+#compra #seleccionAsientos #marcoBus .no-seleccion {
+    color: rgb(80, 80, 80);
+    border: 1px solid rgb(80, 80, 80);
+    background-color: rgb(139, 139, 139);
+}
+
+#compra #seleccionAsientos #marcoBus .asiento::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(255, 255, 255, 1));
+    opacity: 0%;
+    border-radius: 8px;
+    transition: opacity .1s ease-in-out;
+}
+
+#compra #seleccionAsientos #marcoBus .asiento:hover {
+    cursor: pointer;
+}
+
+#compra #seleccionAsientos #marcoBus .asiento:hover::before {
+    opacity: .3;
+}
+
+#compra #seleccionAsientos #marcoBus .asiento:focus {
+    border: none;
+    outline: none;
+}
+
+#compra #seleccionAsientos #marcoBus .asiento:active::before {
+    background: linear-gradient(180deg, rgba(0, 0, 0, .2), rgba(255, 255, 255, 1));
+}
+
+#compra #informacionPago {
+    width: 300px;
+    background-color: rgb(201, 201, 201);
+    border: 1px dashed #222;
+    padding: 15px;
+    overflow-x: hidden;
+}
+
+#compra #seleccionAsientos #seleccionCantidadPasajes select[name="cantidad"] {
+    margin: 10px;
+    height: 30px;
+    outline: none;
+    border-radius: 10px 10px 0 0;
+}
+
+#compra #informacionPago #montoTotal {
+    text-align: right;
+}
+
+.lineaPunteada {
+    width: 100%;
+    background: initial;
+    border-top: 1px dashed #222;
+}
+
+/* -----------------------------------
+------------ F O O T E R -------------
+-------------------------------------- */
+
+footer {
+    width: auto;
+    height: 50px;
+    background-color: rgb(37, 37, 37);
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* -----------------------------------
+-------------- N O T A ---------------
+-------------------------------------- */
+
+#error #nota {
+    margin: auto;
+    width: 550px;
+    min-width: 400px;
+    height: auto;
+    text-align: center;
+    color: white;
+    font-family: 'Changa', sans-serif;
+    line-height: 1.5;
+}
+
+#error h1 {
+    font-size: 50px;
+}
+
+#error p {
+    font-weight: bold;
+}
+
+#error .boton {
+    width: 40%;
+}
+
+/* -----------------------------------
+------------- M E D I A --------------
+--------------------------------------
+----------- Q U E R I E S ------------
+-------------------------------------- */
+
+@media (max-width: 1050px) {
+
+    #principal #cabecera {
+        width: auto;
+    }
+
+    #principal .banner {
+        width: 80%;
+    }
+
+    #principal #agencias #divTabla {
+        overflow-x: scroll;
+    }
+
+    #principal #agencias table {
+        table-layout: auto;
+        min-width: 570px;
+    }
+
+    #principal #seccionContacto {
+        width: 100%;
+        display: initial;
+    }
+
+    #principal #info {
+        width: 100%;
+    }
+
+    #principal #formContacto {
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 950px) {
+    
+    #principal #pasos {
+        grid-template-columns: repeat(2, auto);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    #principal .contenido {
+        display: block;
+        width: 100%;
+    }
+
+    #principal #menu_imgPerfil {
+        width: 120px;
+        position: static;
+    }
+
+    #principal #btnMenuPrincipal {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 30px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    #principal #btnMenuPrincipal span {
+        background-color: dimgray;
+        width: 30px;
+        height: 5px;
+    }
+
+    #principal #menuPrincipal ul {
+        position: absolute;
+        z-index: -10;
+        right: 0;
+        top: -191px;
+        background-color: white;
+        width: 70%;
+        display: block;
+        transition: top 100ms ease-out;
+    }
+
+    #principal #menuPrincipal li {
+        display: block;
+        margin: 0;
+        text-align: left;
+        border-bottom: 1px solid rgb(238, 238, 238);
+    }
+
+    #principal #menuPrincipal li:last-child {
+        border: none;
+    }
+    
+    #principal #menuPrincipal li:after {
+        transform-origin: 0% 0%;
+    }
+
+    #principal #menuPrincipal a {
+        padding-left: 1em;
+        line-height: 4;
+    }
+
+    #principal #chkMenuPrincipal:checked ~ ul {
+        /* ~ busca en html hasta encontrar el elemento
+        especificado */
+        top: 100%;
+    }
+
+    #principal .banner {
+        width: 100%;
+    }
+
+    #principal .banner #busqueda {
+        grid-template-columns: auto;
+    }
+    
+    #principal .banner #busqueda span {
+        display: block;
+    }
+    
+    #principal .banner #busqueda #t1 {
+        width: 100%;
+        border-bottom: 1px solid #cecece;
+        border-radius: 0;
+    }
+    
+    #principal .banner #busqueda #t2 {
+        width: 100%;
+        margin-left: 0;
+        border-bottom: 1px solid #cecece;
+        border-right: none;
+    }
+
+    /* Diseño de triangulo > */
+    #principal .banner #busqueda #txt1:after, #principal .banner #busqueda #txt2:before {
+        border-top: none;
+        border-left: none;
+        border-bottom: none;
+    }
+
+    #principal .banner #busqueda #btnBuscar {
+        margin-top: -1px;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .tooltip {
+        right: 0;
+        left: 0;
+    }
+
+    #principal #patrocinio {
+        width: 100%;
+    }
+
+    #principal #pasos {
+        display: block;
+    }
+
+    #principal .funcionamiento {
+        margin: auto;
+    }
+
+    footer {
+        text-align: center;
+    }
+}
+@media (max-width: 800px) {
+
+    #compra #contenedorPrincipal {
+        width: calc(400px + 30px);
+        height: auto;
+        grid-template-columns: auto;
+    }
+
+    #compra #seleccionAsientos {
+        overflow-y: initial;
+    }
+
+    #compra #informacionPago {
+        margin-top: 10px;
+        width: auto;
+    }
+}
+
+@media (max-width: 700px) {
+
+    #principal #menuPrincipal ul {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 510px) {
+    
+    #principal .contenido .busquedaAvanzada .opciones {
+        grid-template-columns: auto;
+    }
+}
+
+@media (max-width: 500px) {
+
+    #principal #menuPerfil ul {
+        width: 100vw;
+    }
+
+    #compra #contenedorPrincipal {
+        max-width: calc(100vw - 60px);
+        min-width: calc(100vw - 100px);
+    }
+
+    #compra #seleccionAsientos {
+        min-width: calc(100vw - 100px);
+    }
+
+    :root {
+        --tamanioAsientos: 55px;
+        --espacioAsientos: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    #compra #contenedorPrincipal {
+        max-width: calc(100vw - 60px);
+        width: calc(100vw - 60px);
+        min-width: 300px;
+    }
+
+    #compra #seleccionAsientos {
+        width: calc(100vw - 90px);
+        min-width: 270px;
+    }
+
+    :root {
+        --tamanioAsientos: 50px;
+        --espacioAsientos: 5px;
+    }
+}

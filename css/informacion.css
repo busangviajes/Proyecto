@@ -1,0 +1,27 @@
+#informacion .wrapper {
+    height: initial;
+}
+
+#informacion .caja {
+    margin: 0 auto;
+    width: 800px;
+    font-size: 15px;
+    animation: none;
+    margin-bottom: 20px;
+}
+
+#informacion section {
+    text-align: left;
+    padding: 15px;
+}
+
+#informacion ul {
+    padding-left: 50px;
+}
+
+@media (max-width: 950px){
+
+    #informacion .caja {
+        box-shadow: none;
+    }
+}

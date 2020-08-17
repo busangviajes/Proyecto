@@ -1,0 +1,373 @@
+/*-----------------------------------
+-------------- C A J A --------------
+----------- C E N T R A L -----------
+-------------------------------------*/
+
+.caja {
+    margin: auto;
+    width: 310px;
+    height: auto;
+    background-color: rgb(245, 245, 245);
+    box-shadow: 13px 14px 0px -2px rgba(34, 34, 34, 0.8);
+    text-align: center;
+    position: relative;
+    animation: .3s ease-out aparecer;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+}
+
+@keyframes aparecer {
+    0% {
+        transform: translateX(20%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.logo {
+    width: 220px;
+    height: auto;
+}
+
+/* Solo para la pantalla de inicio */
+#botones {
+    margin-top: 20px;
+}
+
+.boton {
+    outline: none;
+    width: 60%;
+    height: 45px;
+    background-color: rgb(34, 34, 34);
+    border: none;
+    border-radius: 2em;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'Changa', sans-serif;
+    cursor: pointer;
+    transition: background-color .2s;
+    margin: 5px auto;
+}
+
+.boton:hover {
+    background-color: rgb(255, 255, 255);
+    color:rgb(34, 34, 34);
+}
+
+.info {
+    width: 100%;
+    overflow: hidden;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: royalblue;
+}
+
+a:hover {
+    color: skyblue;
+    cursor: pointer;
+}
+
+/*-----------------------------------
+---------- M E N S A J E S ----------
+---------------- D E ----------------
+------------- E R R O R -------------
+-------------------------------------*/
+
+.alerta {
+    color: rgb(255, 108, 108);
+    font-weight: bold;
+}
+
+/*-----------------------------------
+-------- C O N T E N E D O R --------
+----------------- Y -----------------
+------------- T E X T O -------------
+-------------------------------------*/
+
+.contenedor {
+    margin: auto;
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.texto {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    padding: 0 10px;
+    border-radius: 10px;
+    background-color: rgb(228, 228, 228);
+    border: 1px solid #cecece;
+    font-size: 13px;
+    position: relative;
+}
+
+.texto:focus {
+    outline: none;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 0px 1px rgb(137, 137, 137) inset;
+}
+
+/*-----------------------------------
+------------ I N I C I O ------------
+---------------- D E ----------------
+------------ S E S I O N ------------
+-------------------------------------*/
+
+/* .contenedor #texto-recordar */
+#inicioSesion #texto-recordar {
+    width: 70%;
+}
+
+#inicioSesion .cajasTexto {
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-rows: repeat(2, auto);
+}
+
+/* #inicioSesion #guardar {
+    position: absolute;
+    left: 2px;
+    bottom: -25px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+} */
+
+#inicioSesion #guardar #recordar {
+    margin-right: 3px;
+}
+
+#inicioSesion .cajasTexto #clave {
+    position: relative;
+}
+
+input[name='clave'] {
+    padding-right: 40px;
+}
+
+#inicioSesion .cajasTexto #clave i {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    font-size: 20px;
+    width: 30px;
+    height: fit-content;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    color: rgb(70, 70, 70);
+}
+
+/*------------------------------------
+---------- R E G I S T R O -----------
+--------------------------------------*/
+
+#registro .caja {
+    width: 440px;
+}
+
+/* .contenedor #textos */
+#registro #textos {
+    width: 85%;
+}
+
+#registro .cajasTexto {
+    display: grid;
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(5, auto);
+}
+
+#registro #email, #registro #usuario, #registro #telefono, #registro #fechaNac, #registro #cedula{
+    grid-column: 1 / 3;
+}
+
+#registro .textoFecha {
+    font-size: 13px;
+    text-align: left;
+    color: dimgray;
+    margin-bottom: -5px;
+}
+
+#registro select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    outline: none;
+}
+
+    /* box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    padding: 0 10px;
+    border-radius: 10px;
+    background-color: rgb(228, 228, 228);
+    border: 1px solid #cecece;
+    font-size: 13px; */
+
+#registro #fechaNacMes {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    font-size: 13px;
+    background: transparent;
+}
+
+#registro #fechaNac {
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+#registro #fechaNac .alerta {
+    grid-column: 1 / 4;
+}
+
+/*------------------------------------
+---------- R E G I S T R O -----------
+---------- C O R R E C T O -----------
+----------------- E ------------------
+-------- I N C O R R E C T O ---------
+--------------------------------------*/
+
+#registro-correcto .caja, #registro-incorrecto .caja {
+    width: 350px;
+}
+
+#registro-correcto p, #registro-incorrecto p {
+    font-size: 17px;
+    margin: 10px 0;
+}
+
+#registro-correcto .boton, #registro-incorrecto .boton {
+    margin: 15px 0;
+}
+
+/*------------------------------------
+--------- R E C U P E R A R ----------
+------------- C L A V E --------------
+--------------------------------------*/
+
+/* .contenedor #correo */
+#recuperacion #correo, #recuperacion #claves {
+    width: 70%;
+}
+
+#recuperacion .cajasTexto {
+    display: grid;
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+    grid-template-rows: repeat(2, auto);
+}
+
+#recuperacion p {
+    font-size: 15px;
+}
+
+#recuperacion .boton {
+    margin: 15px 0;
+}
+
+/* -----------------------------------
+------------- M E D I A --------------
+----------- Q U E R I E S ------------
+-------------------------------------- */
+
+/* --------------------------------------
+--------- B I E N V E N I D A -----------
+------------------ , --------------------
+------- I N I C I O S E S I O N ---------
+------------------ Y --------------------
+--- R E G I S T R O - C O R R E C T O ---
+-------------------------------------- */
+
+@media (max-width: 370px){
+
+    .caja {
+        min-width: 230px;
+        box-shadow: none;
+        animation: none;
+    }
+}
+
+@media (max-height: 500px) {
+
+    .caja {
+        box-shadow: none;
+        animation: none;
+    }
+
+}
+
+/* --------------------------------------
+----------- R E G I S T R O -------------
+-------------------------------------- */
+
+@media (max-width: 500px) {
+
+    #registro .caja {
+        min-width: 230px;
+        box-shadow: none;
+        animation: none;
+    }
+
+    #registro .cajasTexto {
+        grid-template-columns: 90%;
+    }
+
+    #registro #nombre, #registro #apellido, #registro #clave, #registro #repClave {
+        grid-column: 1 / 3;
+    }
+}
+
+@media (max-height: 690px) {
+
+    #registro .caja {
+        box-shadow: none;
+        animation: none;
+    }
+}
+
+/*------------------------------------
+---------- R E G I S T R O -----------
+---------- C O R R E C T O -----------
+----------------- E ------------------
+-------- I N C O R R E C T O ---------
+--------------------------------------*/
+
+@media (max-width: 410px) {
+
+    #registro-correcto .caja, #registro-incorrecto .caja {
+        min-width: 230px;
+        box-shadow: none;
+        animation: none;
+    }
+
+}
+
+/*------------------------------------
+--------- R E C U P E R A R ----------
+------------- C L A V E --------------
+--------------------------------------*/
+
+@media (max-height: 540px) {
+
+    #recuperacion .caja {
+        box-shadow: none;
+        animation: none;
+    }
+
+}
